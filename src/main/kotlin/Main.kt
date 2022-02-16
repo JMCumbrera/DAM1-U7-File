@@ -115,3 +115,32 @@ object E06ListaContenidoDirectorio {
         }
     }
 }
+
+object E07CreaArchivo {
+    @JvmStatic
+    fun main(args: Array<String>) {
+
+        val fileName = "data.txt"
+        var file = File(fileName)
+
+        // create a new file
+        val isNewFileCreated: Boolean = file.createNewFile()
+        file.writeBytes("Hello World!".toByteArray())
+
+        if (isNewFileCreated) {
+            println("$fileName is created successfully.")
+        } else {
+            println("$fileName already exists.")
+        }
+
+        // try creating a file that already exists
+        val isFileCreated: Boolean = file.createNewFile()
+
+        if (isFileCreated) {
+            println("$fileName is created successfully.")
+        } else {
+            println("$fileName already exists.")
+        }
+
+    }
+}
